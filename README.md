@@ -1,93 +1,100 @@
-# CV_Tour_Into_Image
+# Computer Vision Summersemester 2022 Challenge
+# Tour into Picture
+## Group 16: 
+Yinghan Huang: GUI and APP design, 3 cases of vanishing point 
+
+Jingkun Feng: 3D reconstruction, homography Matrix calculation,Visual performance Optimization 
+
+Hauyu Wei, Jiawei Zou :Foreground selection and Interpolation
+
+Qihong Zha: Interpolation and Poster
+
+## Introduction
+This application can create and visualize different perspective of a room based
+on a single image. It can provides funktionality for the user to choose an image, 
+select the vanishing point as well as select foreground objects. At the end, 
+it will create a 3D tour, where the user can walk through and observe different 
+corners of the reconstructed room by pressing a few buttons.
+
+## Dependencies
+To run the application, you need to install the following Mathworks Toolboxes:
+- Image Processing Toolbox
+- Computer Vision Toolbox
+- Symbolic Math Toolbox
+
+## Quick Retart
+
+### 1 vanishing point case
+
+1. Open Matlab and change the current folder to the project directories.
+2. Run the file `main.m` in Command Window.
+3. Choose an image by scolling down the selection list next to 'Choose one Image'.
+   You can also choose images in other directories by clicking `Load Custom Image`.
+4. Choose different mode by clicking tha tabs `0 Vanishing Point`, 
+   `1 Vanishing Point` or `2 Vanishing Points`.
+5. To select rear wall and to define a vanishing point of the scene, 
+   first click on `Select Vanishing Point and Background`, then drag the
+   points and sides of the rectangle shown on the right
+6. (Optional) To select foreground objects, click on `Select foreground`. After
+   that, you can extract the object by clicking the left mouse button to define 
+   its vertexes. Press the right mouse button to complete 
+   the extraction. Please select objects one after one. Note that our application
+   only supports reconstructing foreground objects which are "on the floor".
+   If you want to cancel the selected points and re-select, press the space button.
+   If you are using Linux system, in case you pressed space but the application does
+   not respond, click on the window bar to activate the window, and try to press
+   space again.
+7. To start the amazing tour into the picture, click 'Start Tour'.
+   Note that the computing time depends on the resolution of the images and 
+   also depends on whether and how many foreground objects are selected.
+8. The reconstructed 3D scene will be display in a new window. You can move
+   the camera, rotate it and zoom by pressing some keys (See detailed
+   instruction shown in the window).
+
+### 0 Vanished Point Case
+
+Based on the thesis, when there is no obvious vanished point in the picture, we just keep the "floor wall" and "rear wall"  from the picture according to the imaginary vanished point.
+
+1. Choose or load images and click on tab "0 Vanished point", so that the image will be in axis (!!)
+2. Click the "Select Vanished Point and Background 0" to select the floor and rear wall in the right image axis
+3. Click the "Select Foreground 0" to select the object in a closer distance, only choose one object per click!! and right click the finish the selecting. If you want to select more than one object, just click the "Select Foreground 0" one more time
+4. Click the start tour to begin the journey
+
+![image-20220719003035420](/Readme.assets/image-20220719003035420.png)
+
+
+### 2 Vanished Point Case
+
+Unlike the above 2 cases, we just discuss about how to do image rectification here. Because when we "cancel" one of the vanished point, the shape will not be in shape of rectangle. So a tour will be weird. 
+
+1. Choose or load images and click on tab "2 Vanished point"
+
+2. first select 2 pairs of parallel lines to do the affine rectification, also draw the vanishing line. 
+
+   ​	it is recommended that choose the parallel lines whose intersection far away from the picture itself, otherwise the image after affine rectification will not be in the axis
+
+3. In the image after affine rectification, choose two perpendicular lines that you want to keep them perpendicular after metric rectification
+
+4. click on image rectification to see the effect.
+
+![image-20220719011018151](Readme.assets/image-20220719011018151.png)
+
+
+## GUI (early version)
+In our working progress, we've tried earlier the user interaction via Matlab GUI.
+This version provides more or less the same function as the application version,
+except that it cannot handle scenes with 0 or 2 vanishing points.
+You can find this version in the folder `archiv`. Please feel free to try it.
+
+## Failed Cases
+There are some interesting functions that we wnat to implement but didn't succeed.
+Those matlab functions are stored in the folder `failed_issues`. Please check it out, if you have time.
+
+
+## References
+[1] Y. Horry, K.-I. Anjyo, and K. Arai, “Tour into the picture: using a spidery mesh interface to make animation from a single image,” in Proceedings of the 24th annual conference on Computer graphics and interactive techniques, 1997, pp. 225–232.
+[2] K. Andersen, The geometry of an art: the history of the mathematical theory of perspective from Alberti to Monge. Springer Science & Business Media, 2008. 5
+[3] A. Criminisi, P. Perez and K. Toyama, "Object removal by exemplar-based inpainting," 2003 IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 2003. Proceedings., 2003, pp. II-II, doi: 10.1109/CVPR.2003.1211538.
 
 
 
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.lrz.de/00000000014AF057/cv_tour_into_image.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.lrz.de/00000000014AF057/cv_tour_into_image/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
