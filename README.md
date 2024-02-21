@@ -60,7 +60,7 @@ Based on the thesis, when there is no obvious vanished point in the picture, we 
 3. Click the "Select Foreground 0" to select the object in a closer distance, only choose one object per click!! and right click the finish the selecting. If you want to select more than one object, just click the "Select Foreground 0" one more time
 4. Click the start tour to begin the journey
 
-![image-20220719003035420](/Readme.assets/image-20220719003035420.png)
+![image-20220719003035420](Project/Readme.assets/image-20220719003035420.png)
 
 
 ### 2 Vanished Point Case
@@ -77,7 +77,7 @@ Unlike the above 2 cases, we just discuss about how to do image rectification he
 
 4. click on image rectification to see the effect.
 
-![image-20220719011018151](Readme.assets/image-20220719011018151.png)
+![image-20220719011018151](Project/Readme.assets/image-20220719011018151.png)
 
 
 ## GUI (early version)
