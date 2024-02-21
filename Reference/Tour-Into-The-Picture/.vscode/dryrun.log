@@ -1,0 +1,11 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/yinghanhuang/TUM/CV_EI_Chanllenge/Reference/Tour-Into-The-Picture'
+g++ -Wall -pedantic -Iexternal/glui/include -std=c++11 -c main.cpp
+g++ -c inc/inpaint/criminisi_inpainter.cpp
+g++ -c inc/inpaint/mean_shift.cpp
+g++ -c inc/inpaint/patch_match.cpp
+g++ -c inc/inpaint/pyramid.cpp
+g++ -c inc/inpaint/template_match_candidates.cpp
+g++ -Wall -pedantic -Iexternal/glui/include -std=c++11 -o program1 main.o criminisi_inpainter.o mean_shift.o patch_match.o pyramid.o template_match_candidates.o `pkg-config opencv --cflags --libs` -Lexternal/glui/lib -lglui -lglut -lGL -lGLU -lm 
+make: Leaving directory '/home/yinghanhuang/TUM/CV_EI_Chanllenge/Reference/Tour-Into-The-Picture'
+ 
