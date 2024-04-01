@@ -1,13 +1,5 @@
 # Computer Vision Summersemester 2022 Challenge
 # Tour into Picture
-//## Group 16: 
-//Yinghan Huang: GUI and APP design, 3 cases of vanishing point 
-
-//Jingkun Feng: 3D reconstruction, homography Matrix calculation,Visual performance Optimization 
-
-//Hauyu Wei, Jiawei Zou :Foreground selection and Interpolation
-
-//Qihong Zha: Interpolation and Poster
 
 ## Introduction
 This application can create and visualize different perspective of a room based
@@ -89,6 +81,14 @@ You can find this version in the folder `archiv`. Please feel free to try it.
 ## Failed Cases
 There are some interesting functions that we wnat to implement but didn't succeed.
 Those matlab functions are stored in the folder `failed_issues`. Please check it out, if you have time.
+## Group 16: 
+Yinghan Huang: GUI and APP design, 3 cases of vanishing point 
+
+Jingkun Feng: 3D reconstruction, homography Matrix calculation,Visual performance Optimization 
+
+Hauyu Wei, Jiawei Zou :Foreground selection and Interpolation
+
+Qihong Zha: Interpolation and Poster
 
 
 ## References
